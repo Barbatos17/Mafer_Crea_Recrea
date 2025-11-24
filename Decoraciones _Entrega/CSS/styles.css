@@ -1,0 +1,750 @@
+/* =========================================
+   1. ESTILOS GENERALES Y RESET
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: #f9fafb;
+    margin-top: 100px; /* Espacio para el navbar fijo */
+}
+
+/* Contenedores Principales */
+.container, .quince-container, .carrusel {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container { padding: 0 1rem; }
+
+/* =========================================
+   2. NAVBAR (ESCRITORIO)
+   ========================================= */
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: top 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 2rem;
+}
+
+/* Logo */
+.logo img {
+    height: 95px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    padding: 5px;
+}
+
+.logo img:hover { transform: scale(1.1); }
+
+/* Enlaces de Navegación */
+.nav-links a {
+    margin-left: 1.2rem;
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.nav-links .btn {
+    background: #ec4899;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+}
+
+/* Botones y Menú Toggle (Ocultos por defecto en PC) */
+.menu-toggle, .burger-menu {
+    display: none;
+}
+
+/* =========================================
+   3. DROPDOWN / MENÚ DESPLEGABLE (PC)
+   ========================================= */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95rem;
+    margin-left: 1rem;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropdown-content a:hover { color: #ec4899; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 180px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 99;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.7rem 1rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.dropdown-content a:hover { background: #f9f9f9; }
+
+/* Lógica Hover para PC */
+.dropdown:hover .dropdown-content { display: block; }
+
+
+/* =========================================
+   4. ESTILOS DE SECCIONES Y COMPONENTES
+   ========================================= */
+
+/* Imágenes Generales */
+.main-image-grid img, .personal-photo, .toldo-img, .carrusel-track img, .popup img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Transiciones Suaves */
+.main-image-grid img, .personal-photo, .service-item, .toldo-img-container, .toldo-img, .social-icons a, .cta-quote-btn, .Formulario_submitir {
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-banner-section {
+    background-color: #fce4ec;
+    padding: 30px 0 50px;
+}
+
+.banner-content-grid {
+    display: flex;
+    gap: 30px;
+}
+
+.image-gallery-area {
+    display: flex;
+    flex-grow: 1;
+    max-width: 60%;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.main-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 150px);
+    gap: 5px;
+    width: 350px;
+}
+
+.main-image-grid img { height: 100%; border-radius: 5px; }
+.main-image-grid img:hover, .personal-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.personal-photo {
+    width: 200px;
+    height: 310px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Textos Hero */
+.text-cta-area {
+    max-width: 40%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.body-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.cta-quote-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ec4899;
+    border: 2px solid #ec4899;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 15px;
+    align-self: flex-start;
+}
+
+.cta-quote-btn:hover {
+    background-color: #ec4899;
+    color: #fff;
+}
+
+/* Servicios (Iconos) */
+.services-icons-section {
+    padding: 50px 0 80px;
+    text-align: center;
+}
+
+.section-title-deco {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.services-icons-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    text-align: center;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.service-icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.icon-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.service-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.service-item-link:hover .service-item {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fce1e1;
+}
+
+.service-item-link:hover .icon-img { filter: brightness(1.1); }
+.service-label { margin-top: 8px; font-weight: 500; }
+
+/* Sección Quince Años */
+#quince-años {
+    scroll-margin-top: 100px;
+    padding: 80px 0;
+}
+
+.quince-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.quince-text {
+    flex: 1;
+    min-width: 320px;
+    max-width: 500px;
+    color: #333;
+}
+
+.quince-text h2 {
+    color: #d63384;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.quince-text p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Carruseles (Quince y Normal) */
+.quince-carousel {
+    flex: 1;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.carousel-container { width: 100%; height: 100%; }
+.carousel-track {
+    display: flex;
+    width: 250px;
+    height: 250px;
+    animation: slide 12s infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.carrusel {
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carrusel-track {
+    display: flex;
+    width: calc(250px * 16);
+    animation: deslizar 40s linear infinite;
+}
+
+.carrusel-track img {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+}
+
+@keyframes deslizar {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.carrusel-track:hover { animation-play-state: paused; }
+
+/* Sección Toldos */
+#toldos {
+    scroll-margin-top: 100px;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.toldos-galeria {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.toldo-img-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.toldo-img-container:hover .toldo-img { transform: scale(1.08); }
+.toldo-img-container:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.25); }
+
+
+/* =========================================
+   5. FOOTER & FORMULARIO
+   ========================================= */
+
+/* Footer */
+.footer {
+    background: #111827;
+    color: #ddd;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .enlaces, .footer-copy { text-align: center; }
+.footer h3, .footer h4 { margin-bottom: 0.5rem; color: #fff; }
+.footer p, .footer ul, .footer a { font-size: 0.9rem; color: #aaa; }
+.footer ul { list-style: none; padding: 0; }
+.footer ul li { margin: 0.3rem 0; }
+.footer a { text-decoration: none; transition: color 0.2s; }
+.footer a:hover { color: #fff; }
+.footer-copy { margin-top: 1.5rem; font-size: 0.8rem; color: #666; }
+
+/* Íconos sociales */
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.social-icons a:nth-child(1) { background-color: #1877f2; }
+.social-icons a:nth-child(2) { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+.social-icons a:nth-child(3) { background-color: #25d366; }
+.social-icons a:hover { transform: scale(1.15); box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); }
+
+/* Contacto y Formulario */
+.contacto-reservas { display: flex; flex-direction: column; gap: 1rem; }
+.contacto-reservas h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.contacto-reservas .item { display: flex; align-items: center; gap: 0.8rem; }
+.contacto-reservas .item i { font-size: 1.5rem; }
+.contacto-reservas .label { font-weight: bold; margin: 0; }
+.contacto-reservas .info { margin: 0; }
+
+.seccion-formulario {
+    background-color: #ec4899;
+    background-image: url("../Imagenes/patron_fiesta.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 120px;
+    gap: 50px;
+}
+
+.faq-left { width: 50%; color: white; max-width: 500px; margin-left: 80px; }
+.faq-title { font-size: 2rem; margin-bottom: 10px; }
+.faq-subtext { font-size: 1rem; margin-bottom: 20px; line-height: 1.4; color: #fdfdfd; }
+.faq-list { margin-top: 15px; }
+.faq-item { margin-bottom: 40px; }
+.faq-item h4 { font-size: 1.1rem; margin-bottom: 5px; color: #fff; }
+.faq-item p { color: #f1f1f1; font-size: 0.95rem; }
+
+.formulario-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 480px;
+    padding: 30px 35px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    margin-right: 100px;
+}
+
+.formulario-container h2, .formulario_label, .formulario_input, #Seleccion_Decoracion {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+.formulario-container h2 { text-align: center; margin-bottom: 25px; }
+.formulario_label { display: block; font-weight: 600; margin-bottom: 6px; }
+
+.formulario_input, #Seleccion_Decoracion {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.formulario_input:focus, #Seleccion_Decoracion:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 5px rgba(236, 72, 153, 0.4);
+    outline: none;
+}
+
+.Formulario_submitir {
+    width: 100%;
+    background-color: #ec4899;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Formulario_submitir:hover { background-color: #db2777; }
+
+/* Tipografía */
+.subtitulo, .titulo { font-family: 'Playfair Display', serif; color: #333; }
+.subtitulo { text-align: left; font-size: 1.8em; color: #444; width: 85%; margin: 30px auto 5px auto; }
+.titulo { text-align: center; font-size: 2em; margin-top: 120px; }
+.contenido-servicios, .lista-recuerdos { width: 85%; margin: 0 auto 30px auto; font-family: 'Open Sans', sans-serif; font-size: 1.05em; color: #555; line-height: 1.8; }
+.contenido-servicios { text-align: justify; }
+.lista-recuerdos { padding-left: 60px; list-style-type: disc; }
+.lista-recuerdos li::marker { color: #d4a373; }
+
+/* Ventana emergente (Popup) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 9998;
+}
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 350px;  
+    text-align: center;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto; 
+}
+
+.popup img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+}
+
+.btn-cerrar {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cerrar:hover { background-color: #c92c39; transform: scale(1.05); }
+
+
+/* =========================================
+   6. RESPONSIVE (MEDIA QUERIES)
+   ========================================= */
+
+/* Tablets (max 992px) */
+@media (max-width: 992px) {
+    .banner-content-grid, .quince-container, .seccion-formulario {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .image-gallery-area, .text-cta-area, .quince-text, .faq-left, .formulario-container {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .banner-content-grid, .seccion-formulario { gap: 20px; }
+    .quince-container { gap: 30px; }
+
+    .image-gallery-area { justify-content: center; }
+    .text-cta-area, .quince-text, .faq-title, .faq-subtext, .footer-grid, .social-icons { text-align: center; }
+    .faq-left { text-align: left; }
+    .cta-quote-btn { align-self: center; }
+    
+    .quince-carousel, .formulario-container { width: 100%; max-width: 500px; }
+    .seccion-formulario { padding: 40px 20px; }
+    .toldos-galeria { justify-content: center; flex-wrap: wrap; }
+    .social-icons { justify-content: center; }
+}
+
+/* Móviles (max 768px) - LAYOUT & MENÚ BURGER */
+@media (max-width: 768px) {
+    
+    /* --- Layout General Móvil --- */
+    .image-gallery-area { flex-direction: column; }
+    .toldos-galeria { align-items: center; }
+    .logo img { height: 80px; }
+    .hero-banner-section { padding: 20px 0 30px; }
+    .main-image-grid { width: 100%; max-width: 350px; grid-template-rows: repeat(2, 120px); }
+    .personal-photo, .toldo-img-container { width: 100%; max-width: 350px; height: auto; }
+    .quince-carousel { height: 300px; }
+    .quince-text h2 { font-size: 1.8rem; }
+    .carrusel-track img { width: 250px; height: 250px; }
+    .carrusel-track { width: calc(250px * 16); }
+    .seccion-formulario { padding: 20px; background-image: none; }
+    .formulario-container { width: 100%; padding: 25px; }
+    .titulo { margin-top: 80px; font-size: 1.8em; }
+    .subtitulo, .contenido-servicios, .lista-recuerdos { width: 90%; }
+    .lista-recuerdos { padding-left: 40px; }
+
+    .contacto-reservas { gap: 0.7rem; width: 100%; align-items: center; text-align: center; }
+    .contacto-reservas h4 { font-size: 1.05rem; }
+    .contacto-reservas .item i { font-size: 1.2rem; justify-content: center; }
+    .contacto-reservas .label, .contacto-reservas .info { font-size: 0.9rem; }
+
+    /* --- MENÚ BURGER & NAVBAR MÓVIL --- */
+    
+    .nav-content {
+        flex-direction: row; 
+        justify-content: space-between;
+        padding: 0 1.5rem;
+    }
+
+    /* Mostrar botón hamburguesa */
+    .burger-menu {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ec4899;
+        z-index: 1001; /* Encima del sidebar */
+    }
+
+    /* Sidebar (Menú lateral) */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Oculto inicialmente */
+        height: 100vh;
+        width: 75%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 120px;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        right: 0; /* Mostrar menú */
+    }
+
+    /* Enlaces dentro del sidebar */
+    .nav-links > a, 
+    .nav-links .dropdown .dropbtn {
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #f0f0f0;
+        display: block;
+        color: #333;
+        margin-left: 0;
+    }
+
+    /* Dropdown "Servicios" en Móvil */
+    .dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropbtn {
+        margin: 0 !important;
+        width: 100%;
+        color: #ec4899 !important;
+    }
+
+    .dropdown-content {
+        position: relative;
+        top: 0;
+        width: 100%;
+        box-shadow: none;
+        background-color: #fff0f5;
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        transition: all 0.3s ease;
+    }
+
+    /* IMPORTANTE: Desactivar hover en móvil para evitar conflictos */
+    .dropdown:hover .dropdown-content {
+        display: none; 
+    }
+
+    /* Solo mostrar si tiene la clase activa (vía JS click) */
+    .dropdown-content.active,
+    .dropdown:hover .dropdown-content.active {
+        display: flex;
+    }
+    
+    .dropdown-content a {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid white;
+        font-size: 1rem;
+        color: #555;
+    }
+    
+    /* X para cerrar (Ajuste visual) */
+    .fa-times {
+        position: fixed;
+        top: 38px;
+        right: 25px;
+    }
+}
+
+/* Pantallas muy pequeñas (max 480px) */
+@media (max-width: 480px) {
+    .carrusel-track img { width: 180px; height: 180px; }
+    .carrusel-track { width: calc(180px * 16); }
+    .main-image-grid { grid-template-rows: repeat(2, 100px); }
+    .popup { width: 90%; }
+    .popup img { max-height: 180px; }
+}
